@@ -1,7 +1,10 @@
-from main import *
+from main import web, cycle_path
+from webbot import Browser
+
 import time
 
 class dc_plus:
+  web = Browser()
   
 
   ## Post Information
@@ -34,13 +37,13 @@ class dc_plus:
     accounts = handle.read()
 
   def logout():
-    web.click(classname=logout_dropdown)
-    web.click('Logout')
+    dc_plus.web.click(classname=dc_plus.logout_dropdown)
+    dc_plus.web.click('Logout')
 
 
   def comment(comment_data):
-    web.type(comment_data, classname=dc_plus.comment_class)
-    web.click(classname=dc_plus.comment_post)
+    dc_plus.web.type(comment_data, classname=dc_plus.comment_class)
+    dc_plus.web.click(classname=dc_plus.comment_post)
 
 
     
@@ -52,17 +55,17 @@ class dc_plus:
       
      
       for account in dc_plus.accounts:
-        web.go_to('https://replit.com/login')
+        dc_plus.web.go_to('https://replit.com/login')
 
         username = account.split(':')[0]
         password = account.split(':')[1]
 
         for i in range(0, int(amount)):
-          web.type(username, name=dc_plus.login_name)
-          web.type(password, name=dc_plus.login_pass)
-          web.click(classname=dc_plus.login_button)
-          web.go_to(post_url.lower()) 
-          web.click(classname=dc_plus.vote_classname)
+          dc_plus.web.type(username, name=dc_plus.login_name)
+          dc_plus.web.type(password, name=dc_plus.login_pass)
+          dc_plus.web.click(classname=dc_plus.login_button)
+          dc_plus.web.go_to(post_url.lower()) 
+          dc_plus.web.click(classname=dc_plus.vote_classname)
 
           print(f'Voted on {username} :: Worked {worked} :: Failed {failed}')
            
