@@ -8,6 +8,8 @@ class dc_plus:
   get_amount = 'jsx-1129441626 vote-control-count'
 
   ## Comment List 
+  comment_class = "body"
+  comment_post = "jsx-4184281861 primary"
   comments = ['Nice!', 'Awesome Post!', 'How many upvotes for the next update?', '@awesome_post Chain (sorry for pings by the way)']
 
   ## Logging Out
@@ -35,6 +37,13 @@ class dc_plus:
     web.click(classname=logout_dropdown)
     web.click('Logout')
 
+
+  def comment(comment_data):
+    web.type(comment_data, classname=dc_plus.comment_class)
+    web.click(classname=dc_plus.comment_post)
+
+
+    
   def upvote(post_url, amount):
     worked = 0
     failed = 0
