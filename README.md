@@ -34,13 +34,13 @@ We have it already, there is a function to upvote (seen above)
 ### Commenting
 There is a simple script to comment on a post with already logged in account, so you add it to your `for` and `in` script.
 
-```
+```py
 dc_plus.comment('COMMENT_DATA')
 ```
 
 We also have a list (that you can edit)
 
-```
+```py
 from random import choice
 from random import randint
 
